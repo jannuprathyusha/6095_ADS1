@@ -134,7 +134,7 @@ class Sorting {
     public void sort() {
         for (int i = 0; i < size; i++) {
             int min = i;
-            for (int j = i+1; j < size; j++) {
+            for (int j = i + 1; j < size; j++) {
                  if (less(ranking[j], ranking[min])) {
                  min = j;
              }
@@ -164,8 +164,8 @@ class Sorting {
      * @return     { boolean is returned }.
      */
     private static boolean less(final Ranking v, final Ranking w) {
-        return v.compareTo(w) < 0; 
-    }
+        return v.compareTo(w) < 0;
+            }
     /**
      * Returns a string representation of the object.
      * time complexity is 1.
@@ -207,11 +207,3 @@ public final class Solution {
         System.out.println(r);
     }
 }
-
-
-
-
-
-
-
-
