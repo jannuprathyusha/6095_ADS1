@@ -1,0 +1,14 @@
+Starting audit...
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:2: Missing a Javadoc comment. [JavadocType]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:2:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:3:5: Missing a Javadoc comment. [JavadocMethod]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:3:29: Parameter args should be final. [FinalParameters]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:8: switch without "default" clause. [MissingSwitchDefault]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:8:19: 'switch' is not followed by whitespace. [WhitespaceAround]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:12: Line has trailing spaces. [RegexpSingleline]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:13:17: '}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:14:22: 'catch' is not followed by whitespace. [WhitespaceAround]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:22:17: '}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] E:\6095_ADS1\sample-assignment\m10\10.1 LinkedList using Recursion\Solution.java:23:22: 'catch' is not followed by whitespace. [WhitespaceAround]
+Audit done.
+Checkstyle ends with 11 errors.
