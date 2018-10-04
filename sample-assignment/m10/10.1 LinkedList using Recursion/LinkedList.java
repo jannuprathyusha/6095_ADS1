@@ -1,84 +1,67 @@
-import java.util.Scanner;
-class Node {
+import java.util.*;
+class Node{
     String data;
     Node next;
-    Node(String data) {
-        this.data = data;
+    Node(String val) {
+        this.data=val;
     }
 }
 class LinkedList {
     Node head;
     int size;
-    LinkedList(){
+    LinkedList() {
         head = null;
-        size = 0;
+        size =0;
     }
-    // void insertAtPosition(int pos, String data) {
-    //  Node obj = new Node(data);
-    //  if(pos == 0) {
-    //      obj.next  = head;
-    //      head = obj;
-    //      size++;
-    //      return;
-    //  }
-    //  Node previous = null;
-    //  int count = 0;
-    //  Node temp = head;
-    //  while(temp!=null) {
-    //      if(count == pos) {
-    //          previous.next  = obj;
-    //          obj.next = temp;
-    //          size++;
-    //          return;
-    //      }
-    //      previous = temp;
-    //      temp = temp.next;
-    //      count++;
-
-    //  }
-    // }
-    void insertAt(int pos, String val) throws Exception {
-        if(pos < 0 || pos > size) {
-            throw new Exception();
+    // time complexity for this method is n
+    //takes O(n) time complexity
+    void insertAt(int pos, String val)throws Exception{
+        if (pos<0 || pos>size) {
+        throw new Exception();          
         }
         Node obj = new Node(val);
-        // if(pos == 0) {
-        //  obj.next  = head;
-        //  head = obj;
-        //  size++;
-        //  return;
-        // }
-        head = insertAt(pos, head, obj, 0);
+        /*if (pos==0) {
+            obj.next =head;
+            head =obj;
+            size++;
+            return;
+        }*/
+        head=insertAt(pos,head,obj,0);
     }
-    Node insertAt(int pos, Node first, Node obj, int count) {
+    // time complexity for this method is n
+    //takes O(n) time complexity
+    Node insertAt(int pos, Node first, Node obj, int count) throws Exception{
         if (pos == count) {
-            obj.next = first;
+            obj.next =first;
             size++;
             return obj;
         }
-        first.next = insertAt(pos, first.next, obj, count+1);
+        first.next = insertAt(pos,first.next,obj,count+1);
         return first;
     }
-    void reverse() {
-        reverse(null, head);
+    // time complexity for this method is n
+    //takes O(n) time complexity
+    void reverse(){
+        reverse(null,head);
     }
-    void reverse(Node previous, Node current) {
-        if(current != null) {
-            reverse(current, current.next);
-            current.next = previous;
-        }
-        else {
-            head = previous;
+    // time complexity for this method is n
+    //takes O(n) time complexity
+    void reverse(Node previous, Node current){
+        if (current!=null) {
+            reverse(current,current.next);
+            current.next= previous;
+        }else {
+            head =previous;
         }
     }
-    //}try this
-    void display() {
+    void display(){
         Node temp = head;
         String str = "";
-        while(temp != null) {
-            str += temp.data + ", ";
+        while(temp!=null){
+            str += temp.data+ ", ";
             temp = temp.next;
         }
-        System.out.println(str.substring(0, str.length()-2));
+        System.out.println(str.substring(0, str.length() - 2));
+
     }
-}
+    } 
