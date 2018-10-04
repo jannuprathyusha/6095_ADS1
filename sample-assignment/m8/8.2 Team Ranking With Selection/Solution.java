@@ -199,6 +199,8 @@ public final class Solution {
         Scanner sc = new Scanner(System.in);
         Sorting r = new Sorting();
         while (sc.hasNext()) {
+        	// String input = sc.nextLine();
+        	// String[] tokens = input.split(",");
             String[] tokens = sc.nextLine().split(",");
             r.add(new Ranking((tokens[0]),
                 Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]),
