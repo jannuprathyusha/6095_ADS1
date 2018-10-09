@@ -1,51 +1,39 @@
 import java.util.Scanner;
-public class Solution {
-
-    private Solution () {
+import java.util.Arrays;
+/**
+ * Solution.
+ */
+final class Solution {
+    /**
+     * Constructs the object.
+     */
+    private Solution() {
 
     }
-
-    public static void main(String[] args) {
+    /**
+     * { Main Method }.
+     *
+     * @param      args  The arguments
+     */
+    public static void main(final String[] args) {
         Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-
-        MinPQ<Float> minpq = new MinPQ<Float>(n);
-        MaxPQ<Float> maxpq = new MaxPQ<Float>(n);
-
-        Float median = 0.0f;
-        for (int i = 0; i < n; i++) {
-            Float val = scan.nextFloat();
-            if (val > median) {
-                minpq.insert(val);
-            } else {
-                maxpq.insert(val);
+        String[] input;
+        final int thousand = 1000;
+        String[] array;
+        int i = 0;
+        Insertion insertion;
+        MergeSort merge;
+        while (scan.hasNext()) {
+            array = new String[thousand];
+            input = scan.nextLine().split(",");
+            for (i = 0; i < input.length; i++) {
+                array[i] = input[i];
             }
-
-            if (minpq.size() - maxpq.size() > 1) {
-                maxpq.insert(minpq.delMin());
-
-            }
-            if (maxpq.size() - minpq.size() > 1) {
-                minpq.insert(maxpq.delMax());
-                
-            }
-
-            if (minpq.size() == maxpq.size()) {
-                median = (minpq.min() + maxpq.max()) / 2;
-                System.out.println(median);
-            }
-
-            if (maxpq.size() > minpq.size()) {
-                median = maxpq.max();
-                System.out.println(median);
-            }
-
-            if (minpq.size() > maxpq.size()) {
-                median = minpq.min();
-                System.out.println(median);
-            }
-
+            array = Arrays.copyOf(array, i);
+            merge = new MergeSort(array);
+            array = merge.mergesort();
+            System.out.println(Arrays.toString(array));
+            System.out.println();
         }
-
     }
 }
