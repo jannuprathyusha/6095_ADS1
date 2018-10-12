@@ -1,5 +1,2 @@
 Starting audit...
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:5: Class Solution should be declared as final. [FinalClass]
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:6:5: Missing a Javadoc comment. [JavadocMethod]
 Audit done.
-Checkstyle ends with 2 errors.
