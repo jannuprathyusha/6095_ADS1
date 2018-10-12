@@ -12,9 +12,9 @@ class Solution {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextLine()) {
             String[] input = sc.nextLine().split(" ");
-            int N = Integer.parseInt(input[0]);
-            int M = Integer.parseInt(input[1]);
-            int thousand = 1000;
+            int n1 = Integer.parseInt(input[0]);
+            int m1 = Integer.parseInt(input[1]);
+            final int thousand = 1000;
             int n = thousand;
             MinPQ<Cubesum> pq = new MinPQ<Cubesum>();
                 for (int i = 1; i <= n; i++) {
@@ -27,10 +27,10 @@ class Solution {
                 Cubesum curr = pq.delMin();
                 if (prev.sum == curr.sum) {
                     pair++;
-                    if (pair == M) {
+                    if (pair == m1) {
                         pairCount = pairCount + 1;
                     }
-                    if (pairCount == N) {
+                    if (pairCount == n1) {
                         System.out.println(prev.sum);
                         break;
                     }

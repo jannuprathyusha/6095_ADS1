@@ -1,8 +1,4 @@
 Starting audit...
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:5:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:15:17: Name 'N' must match pattern '^[a-z][a-zA-Z0-9]*$'. [LocalVariableName]
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:16:17: Name 'M' must match pattern '^[a-z][a-zA-Z0-9]*$'. [LocalVariableName]
-[ERROR] E:\6095_ADS1\sample-assignment\m17\TaxiCabNumbers\Solution.java:17:28: '1000' is a magic number. [MagicNumber]
 Audit done.
-Checkstyle ends with 5 errors.
+Checkstyle ends with 1 errors.
