@@ -1,28 +1,6 @@
-import java.util.*;
-class Cubesum implements Comparable<Cubesum> {
-	int i,j;
-	long sum;
-	public Cubesum(int i, int j) {
-        this.sum = (long) i*i*i + (long) j*j*j;
-        this.i = i;
-        this.j = j;
-    }
-    public int compareTo(Cubesum that) {
-        if (this.sum < that.sum) {
-            return -1;
-        }
-        else if (this.sum > that.sum) {
-            return +1;
-        } else {
-            return  0;
-        }
-    }
-    public String toString() {
-        return i + "^3 + " + j + "^3";
-    }
-}
+import java.util.Scanner;
 class Solution {
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNextLine()) {
 			String[] input = sc.nextLine().split(" ");
@@ -40,10 +18,10 @@ class Solution {
                 Cubesum curr = pq.delMin();
                 if (prev.sum == curr.sum) {
                     pair++;
-                    if (pair == M){
-                    	pairCount = pairCount+1;
+                    if (pair == M) {
+                    	pairCount = pairCount + 1;
                     }
-                    if(pairCount == N){
+                    if(pairCount == N) {
     	            	System.out.println(prev.sum);
     	            	break;
                 	}
