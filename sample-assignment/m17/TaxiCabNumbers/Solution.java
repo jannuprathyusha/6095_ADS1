@@ -3,8 +3,11 @@ import java.util.Scanner;
  * Class for solution.
  */
 class Solution {
+    private Solution() {
+
+    }
     /**
-     * { function_description }
+     * { function_description }.
      *  Main function.
      * @param      args  The arguments
      */
