@@ -1,8 +1,4 @@
 /**
- * Scanner import.
- */
-import java.util.Scanner;
-/**
  * Class for book.
  */
 class Book implements Comparable<Book> {
@@ -93,5 +89,4 @@ class Node {
      * Count of the insertions for each and every node.
      */
     private int count;
-    
-   }
+}
