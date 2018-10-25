@@ -130,7 +130,7 @@ class HashTable {
 /**
  * Solution class.
  */
-final class Solution {
+public final class Solution {
     /**
      * main.
      *
