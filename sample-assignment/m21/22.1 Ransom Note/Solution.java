@@ -1,169 +1,99 @@
 import java.util.Scanner;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 /**
- * Class for hash table.
- */
-class HashTable {
-    /**
-     * Class for node.
-     */
-    class Node {
-        /**
-         * word as key.
-         */
-        private String key;
-        /**
-         * count as value.
-         */
-        private Integer val;
-        /**
-         * next node.
-         */
-        private Node next;
-        /**
-         * Constructs the object.
-         *
-         * @param      k     { parameter_description }
-         * @param      v     { parameter_description }
-         * @param      n     { parameter_description }
-         */
-        Node(final String k, final Integer v, final Node n) {
-            this.key = k;
-            this.val = v;
-            this.next = n;
-        }
-        /**
-         * retunrs key.
-         *
-         * @return     { description_of_the_return_value }
-         */
-        String getkey() {
-            return this.key;
-        }
-        /**
-         * Gets the value.
-         *
-         * @return     The value.
-         */
-        Integer getValue() {
-            return this.val;
-        }
-        /**
-         * sets value.
-         *
-         * @param      v     { parameter_description }
-         */
-        void setvalue(final Integer v) {
-            this.val = v;
-        }
-    }
-    /**
-     * nodes table.
-     */
-    private Node[] st;
-    /**
-     * size.
-     */
-    private int s = (2 * (2 + 2 + 1)) * (2 * (2 + 2 + 1));
-    /**
-     * Constructs the object.
-     */
-    HashTable() {
-        st = new Node[s];
-    }
-    /**
-     * hash.
-     *
-     * @param      k     { parameter_description }
-     *
-     * @return     { description_of_the_return_value }
-     */
-    int num = 0x7fffffff;
-    int hash(final String k) {
-        return (k.hashCode() & num) % s;
-    }
-    /**
-     * resizes.
-     */
-    public void resize() {
-        st = Arrays.copyOf(st, 2 * s);
-    }
-    /**
-     * put.
-     *
-     * @param      k     { parameter_description }
-     * @param      v     { parameter_description }
-     */
-    public void put(final String k, final Integer v) {
-        int i = hash(k);
-        for (Node x = st[i]; x != null; x = x.next) {
-            if (k.equals(x.getkey())) {
-                x.setvalue(x.getValue() + 1);
-                return;
-            }
-        }
-        if (i >= st.length) {
-            resize();
-        }
-        st[i] = new Node(k, v, st[i]);
-    }
-    /**
-     * get.
-     *
-     * @param      k     { parameter_description }
-     *
-     * @return     { description_of_the_return_value }
-     */
-    public boolean get(final String k) {
-        int i = hash(k);
-        for (Node x = st[i]; x != null; x = x.next) {
-            if (k.equals(x.getkey())) {
-                if (x.getValue() > 0) {
-                    x.setvalue(x.getValue() - 1);
-                    return true;
-                }
-                return false;
-            }
-        }
-        return false;
-    }
-}
-/**
- * Solution class.
+ * Class for solution.
  */
 public final class Solution {
     /**
      * Constructs the object.
      */
     private Solution() {
-        //construictor.
+        //constructor.
     }
     /**
-     * main.
+     * main function.
      *
-     * @param      args  The arguments
+     * @param      args       The arguments
+     *
+     * @throws     Exception  { exception_description }
      */
     public static void main(final String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
-        sc.nextLine();
-        String[] magazine = sc.nextLine().split(" ");
-        String[] note = sc.nextLine().split(" ");
-        HashTable h = new HashTable();
+        Scanner s = new Scanner(System.in);
+        int m = s.nextInt();
+        int n = s.nextInt();
+        String[] str1 = new String[m];
         for (int i = 0; i < m; i++) {
-            h.put(magazine[i], 1);
+            str1[i] = s.next();
         }
-        boolean flag = true;
+        String[] str2 = new String[n];
         for (int i = 0; i < n; i++) {
-            if (!h.get(note[i])) {
-                flag = false;
-                System.out.println("No");
-                break;
-            }
+            str2[i] = s.next();
         }
-        if (flag) {
+        if (getRansom(m, n, str1, str2)) {
             System.out.println("Yes");
+        } else {
+            System.out.println("No");
         }
     }
+    /**
+     * Gets the ransom.
+     *
+     * @param      m         { parameter_description }
+     * @param      n         { parameter_description }
+     * @param      str1  str1
+     * @param      str2    str2
+     *time complexity - O(n).
+     * @return     The ransom.
+     */
+    private static boolean getRansom(final int m, final int n,
+        final String[] str1, final String[] str2) {
+        if (m < n) {
+            return false;
+        }
+        Map<String, Integer> magazineMap = getFrequencyMapFromArray(str1);
+        Map<String, Integer> ransomMap =  getFrequencyMapFromArray(str2);
+        // System.out.println(magazineMap);
+        // System.out.println(ransomMap);
+        for (String key : ransomMap.keySet()) {
+            if (!magazineMap.containsKey(key)) {
+                return false;
+            }
+            if (magazineMap.get(key) < ransomMap.get(key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * Gets the frequency map from array.
+     * time complexity - O(n).
+     * @param      arr   The arr
+     *
+     * @return     The frequency map from array.
+     */
+    private static Map<String, Integer> getFrequencyMapFromArray(
+        final String[] arr) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String key : arr) {
+            if (map.containsKey(key)) {
+                map.put(key, map.get(key) + 1);
+            } else {
+                map.put(key, 1);
+            }
+        }
+        return map;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

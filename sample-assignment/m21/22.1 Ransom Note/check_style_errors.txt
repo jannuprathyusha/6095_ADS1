@@ -1,6 +1,2 @@
 Starting audit...
-[ERROR] E:\6095_ADS1\sample-assignment\m21\22.1 Ransom Note\Solution.java:81:9: Variable 'num' must be private and have accessor methods. [VisibilityModifier]
-[ERROR] E:\6095_ADS1\sample-assignment\m21\22.1 Ransom Note\Solution.java:81:15: '0x7fffffff' is a magic number. [MagicNumber]
-[ERROR] E:\6095_ADS1\sample-assignment\m21\22.1 Ransom Note\Solution.java:82:5: Missing a Javadoc comment. [JavadocMethod]
 Audit done.
-Checkstyle ends with 3 errors.
