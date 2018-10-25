@@ -130,7 +130,13 @@ class HashTable {
 /**
  * Solution class.
  */
-class Solution {
+public final class Solution {
+    /**
+     * Constructs the object.
+     */
+    private Solution() {
+        //construictor.
+    }
     /**
      * main.
      *
